@@ -784,6 +784,7 @@ INSTALL_NOEXEC
 INSTALL_BACKUP
 sesh_file
 noexec_file
+subcmd_interp_file
 NOEXECDIR
 NOEXECFILE
 mansectform
@@ -3180,6 +3181,7 @@ ldap_conf=/etc/ldap.conf
 ldap_secret=/etc/ldap.secret
 netsvc_conf=/etc/netsvc.conf
 noexec_file="$libexecdir/sudo/sudo_noexec.so"
+subcmd_interp_file="$libexecdir/sudo/libsudo_interp.so"
 sesh_file="$libexecdir/sudo/sesh"
 nsswitch_conf=/etc/nsswitch.conf
 secure_path="not set"
@@ -28060,6 +28062,13 @@ while test X"$noexec_file" != X"$_noexec_file"; do
     eval noexec_file="$_noexec_file"
 done
 
+# Update exec_prefix in subcmd_interp_file
+_subcmd_interp_file=
+while test X"$subcmd_interp_file" != X"$_subcmd_interp_file"; do
+    _subcmd_interp_file="$subcmd_interp_file"
+    eval subcmd_interp_file="$_subcmd_interp_file"
+done
+
 # Update exec_prefix in sesh_file
 _sesh_file=
 while test X"$sesh_file" != X"$_sesh_file"; do
@@ -28119,6 +28128,10 @@ else
 EOF
 
 fi
+
+    cat >>confdefs.h <<EOF
+#define _PATH_SUDO_SUBCMD "$subcmd_interp_file"
+EOF
 
 if test X"$LDFLAGS_R" != X""; then
     LDFLAGS="$LDFLAGS $LDFLAGS_R"

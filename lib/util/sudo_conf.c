@@ -122,6 +122,7 @@ static struct sudo_conf_data {
 	{ "noexec", sizeof("noexec") - 1, false, _PATH_SUDO_NOEXEC },
 	{ "plugin_dir", sizeof("plugin_dir") - 1, false, _PATH_SUDO_PLUGIN_DIR },
 	{ "devsearch", sizeof("devsearch") - 1, false, _PATH_SUDO_DEVSEARCH },
+	{ "subcmd", sizeof("subcmd") - 1, false, _PATH_SUDO_SUBCMD },
 	{ NULL }
     }
 };

@@ -198,7 +198,7 @@ sudo_execve(int fd, const char *path, char *const argv[], char *envp[], bool noe
 	envp = disable_execute(envp, sudo_conf_noexec_path());
 
     if (subcmd_detection) {
-        envp = preload_dso(envp, "/usr/local/libexec/sudo/libsudo_interp.so");
+        envp = preload_dso(envp, _PATH_SUDO_SUBCMD);
 
         size_t env_size = 0;
         while (envp[env_size] != NULL)

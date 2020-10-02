@@ -149,6 +149,10 @@
 # undef _PATH_SUDO_NOEXEC
 #endif /* _PATH_SUDO_NOEXEC */
 
+#ifndef _PATH_SUDO_SUBCMD
+# undef _PATH_SUDO_SUBCMD
+#endif /* _PATH_SUDO_SUBCMD */
+
 #ifndef _PATH_SUDO_ASKPASS
 # undef _PATH_SUDO_ASKPASS
 #endif /* _PATH_SUDO_ASKPASS */
